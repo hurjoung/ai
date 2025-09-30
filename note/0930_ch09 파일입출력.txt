@@ -1,0 +1,33 @@
+9장 파일 입출력
+
+1절 txt파일
+with open( 파일path/파일명, 'w/r/a', encoding ) as 파일변수:
+	list변수 = 파일변수.readlines() / 문자변수 = 파일변수.read()
+	파일변수.write(저장 문자열) / 파일변수.writelines(list변수)
+
+2절 피클(pkl, pickle, data)
+	
+with open( 파일path/파일명, 'w/wb/r/rb/ab' ) as 파일변수:
+	객체리스트변수 = pickle.load(파일변수) -> in(read)
+	pickle.dump(객체리스트변수, 파일변수) -> out(write)
+
+3절 csv파일
+with open( 파일path/파일명, 'w/r/a', encoding ) as 파일변수:   *기본인코딩 cp949
+	list데이터 = csv.reader(파일변수)  -> in(read)
+	list데이터 = csv.write(파일변수)
+	--> list데이터.writerows(list데이터)
+
+	dic_reader = csv.DictReader(파일변수)
+	dic_writer = csv.DictWriter(파일변수)
+	--> dic_writer.writeheader();
+	     dic_writer.writerrows(list)
+
+4절 json파일
+with open( 파일path/파일명, 'w/r/a', encoding ) as 파일변수:
+	리스트변수 = json.load(파일변수) : 딕셔너리로 읽기
+	객체리스트변수 = json.load(파일변수, object_hook=함수명) * 함수명은 딕셔너리를 객체로 리턴
+	json.dump(리스트변수, 파일변수, ensure_ascii, indent)
+	json.dump(객체리스트, 파일변수, default=클래스명.함수명, ensure_ascii, indent) * 함수명은 객체를 딕셔너리로 리턴
+
+
+
