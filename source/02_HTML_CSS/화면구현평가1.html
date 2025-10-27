@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        section {
+            width: 450px;
+            margin: 10px auto; /* 밖여백 : 위,오른쪽, 아래, 왼쪽*/
+        }
+        table {
+            width: 380px;
+            margin: 10px auto; /* 밖여백 : 위,오른쪽, 아래, 왼쪽*/
+        }
+        div {
+            text-align: center;
+        }
+        td, th {
+            padding: 5px 10px; /* 안여백 : 위,오른쪽,아래,왼쪽*/
+        }
+    </style>
+    <script language="javascript">
+        function chk()
+        {
+            if (frm.name.value.length < 2) {
+                alert('이름은 2글자 이상 필수입력입니다');
+                frm.name.focus();
+                return false;
+            }
+            else if (frm.id.value.length < 4) {
+                alert('아이디는 4글자 이상 필수입력입니다');
+                frm.id.focus();
+                return false;
+            } else if (!frm.pw.value) {
+                alert('비밀번호는 필수입력입니다');
+                frm.pw.focus();
+                return false;
+            } else if (frm.pw.value != frm.pwChk.value) {
+                alert('비밀번호를 확인하세요');
+                frm.pw.value = ''; // 입력된 비밀번호 input 내용지우기
+                frm.pwChk.value = '';
+                frm.pw.focus();
+                return false; // submit 거부
+            }
+            return true; // submit 작동
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="frm" onsubmit="return chk()">
+        <header style="text-align:center">회원가입</header>
+        <section>
+            <fieldset>
+                <legend>
+                    필수입력
+                </legend>
+                <table>
+                    <tr>
+                        <td>이름<span><label style="color:red">*</label></span></td>
+                        <td><input type="text" name="name" placeholder="이름은 2글자 이상" /></td>
+                    </tr>
+                    <tr>
+                        <td>아이디<span><label style="color:red">*</label></span></td>
+                        <td><input type="text" name="id" placeholder="ID는 4글자 이상" /></td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호<span><label style="color:red">*</label></span></td>
+                        <td><input type="password" name="pw" /></td>
+                    </tr>
+                    <tr>
+                        <td>비번확인<span><label style="color:red">*</label></span></td>
+                        <td><input type="password" name="pwChk" /></td>
+                    </tr>
+                    <tr>
+                        <td>전화<span><label style="color:red">*</label></span></td>
+                        <td>
+                            <input type="text" name="tel" id="tel"
+                                   placeholder="전화번호 형식(000-0000-0000)"
+                                   required="required"
+                                   autofocus="autofocus"
+                                   pattern="\d{2,3}-?\d{3,4}-?\d{4}"
+                                   title="전화번호 형식이 아닙니다" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이메일<span><label style="color:red">*</label></span></td>
+                        <td>
+                            <input type="email" name="email"
+                                   required="required"
+                                   autofocus="autofocus"
+                                   title="이메일 형식이 아닙니다"
+                                   pattern="\w+@\w+(\.\w+){1,2}"
+                                   placeholder="ss@domain.com 형식" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    추가 입력 사항
+                </legend>
+                <table>
+                    <tr>
+                        <td>결혼유무</td>
+                        <td>
+                            기혼<input type="radio" name="rad1" value="r1" checked="checked" />
+                            미혼<input type="radio" name="rad1" value="r2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>자식</td>
+                        <td>
+                            <input type="checkbox" name="chk1" value="chk1" />아들
+                            <input type="checkbox" name="chk2" value="chk2" />딸
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>지역</td>
+                        <td>
+                            <select name="area">
+                                <option value="A1" selected="selected">서울</option>
+                                <option value="A2">경기</option>
+                                <option value="A3">강원</option>
+                                <option value="A4">대전</option>
+                                <option value="A5">충청</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br />
+            <div>
+                <input type="submit" name="okbtn" /><input type="reset" name="cancelbtn" value="취소" />
+            </div>
+        </section>
+        <footer></footer>
+    </form>
+</body>
+</html>
