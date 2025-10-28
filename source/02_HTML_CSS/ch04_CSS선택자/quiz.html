@@ -1,0 +1,205 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        #header {
+            overflow: hidden;
+            height:150px;
+            margin:0 auto;
+        }
+            #header .left {
+                float: left;
+                border: 1px solid;
+                width: 150px;
+                height: 100%;
+                border-radius: 20px 0 20px 0; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+            #header .center {
+                float: left;
+                border: 1px solid;
+                width: 693px;
+                height: 100%;
+                border-radius: 0 0 20px 20px; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+            #header .right {
+                float: left;
+                border: 1px solid;
+                width: 150px;
+                height: 100%;
+                border-radius: 0 20px 0 20px; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+
+        #content {
+            overflow: hidden;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+            #content .left {
+                float: left;
+                border: 1px solid;
+                height: 100%;
+                width: 150px;
+                border-radius: 0 20px 20px 0; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+
+            #content .center {
+                float: left;
+                border: 1px solid;
+                height: 100%;
+                width: 693px;
+                border-radius: 20px 20px 20px 20px; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+
+                div#nav ul{
+                    overflow: hidden;
+                    text-align:center;
+                }
+
+                    div#nav ul li {
+                        width: 20%;
+                        list-style: none;
+                        text-align: center;
+                        padding: 0px;
+                        margin: 2px;
+                        font-size: 1.3em;
+                        float: left;
+                    }
+
+                    div#nav li > a {
+                        color: black;
+                        text-decoration: none;
+                        font-weight: bold;
+                    }
+
+        #academy {
+            width: 693px;
+            margin: 0 auto;
+            text-align:center;
+        }
+
+            #academy h2 {
+                width: 693px;
+                margin-top: 100px;
+            }
+
+            #academy p {
+                width: 693px;
+                text-align:left;
+                margin-top:30px;
+            }
+
+            #content .right {
+                float: left;
+                border: 1px solid;
+                height: 100%;
+                width: 150px;
+                border-radius: 20px 0 0 20px; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+
+                #content .right ol {
+                    width: 150px;
+                }
+
+                    #content .right ol li:nth-last-child(-n+3) {
+                        color: red;
+                    }
+
+        #footer {
+            overflow: hidden;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+            #footer .left {
+                float: left;
+                border: 1px solid;
+                height: 100%;
+                width: 150px;
+                border-radius: 0 20px 0 20px; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+
+            #footer .center {
+                float: left;
+                border: 1px solid;
+                height: 100%;
+                width: 693px;
+                border-radius: 20px 20px 0 0; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+
+            #footer .right {
+                float: left;
+                border: 1px solid;
+                height: 100%;
+                width: 150px;
+                border-radius: 20px 0 20px 0; /*좌상, 우상, 우하, 좌하*/
+                background-color: lightgray;
+            }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div id="header">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <div id="content">
+        <div class="left"></div>
+        <div class="center">
+            <div id="nav">
+                <ul>
+                    <li><a href="#">menu1</a></li>
+                    <li><a href="#">menu2</a></li>
+                    <li><a href="#">menu3</a></li>
+                </ul>
+            </div>
+            <div id="academy">
+                <h2>AI 개발자 양성과정</h2>
+                <p>
+                    파이썬, 웹표준, js, 웹크롤링, DBMS, 딥러닝,
+                    이미지 딥러닝, 자연어처리, 생성형 ai, 머신러닝, 프로젝트, flask, 장고
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <ol type="1">
+                <li>태그</li>
+                <li>전체(*)</li>
+                <li>#id, .class</li>
+                <li>속성</li>
+                <li>후손,자손></li>
+                <li>동위+~</li>
+                <li>반응</li>
+                <li>상태</li>
+                <li>구조</li>
+                <li>문자</li>
+                <li>링크</li>
+                <li>부정</li>
+            </ol>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
