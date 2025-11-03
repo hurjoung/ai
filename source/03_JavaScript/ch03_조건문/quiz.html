@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <title></title>
+  <style>p{text-align: center;}</style>
+  <script>
+    function chk(){
+      // 수를 입력했는지
+      if(!frm.su1.value){
+        alert('첫번째 수를 입력하세요');
+        frm.su1.focus();
+        return false;
+      }
+      else if(!frm.su2.value){
+        alert('두번째 수를 입력하세요');
+        frm.su2.focus();
+        return false;
+      }
+      // 몇번째 수가 얼마나 더 큰지 document.body.innerHTML에 추가
+      var num1 = Number(frm.su1.value);
+      var num2 = Number(frm.su2.value);
+
+      var dif = (num1>num2) ? num1-num2 : num2-num1;
+      var msg = (num1>num2) ? '첫번째 수가 '+ dif +'만큼 더 크다' :
+                            (num2>num1)? '두번째 수가 '+ dif +'만큼 더 크다' :
+                                        '두 수는 같다';
+      alert(msg);
+      document.getElementById("resultMsg").innerHTML = '<h2><p>' + msg + '</p></h2>';
+
+      // alert메세지도 띄움
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <form name="frm" onsubmit="return chk()">
+    <fieldset>
+      <p>첫번째 수 : <input type="number" name="su1"></p>
+      <p>두번째 수 : <input type="number" name="su2"></p>
+      <p><input type="submit" value="결과"></p>
+    </fieldset>
+  </form>
+  <div id="resultMsg"></div>
+</body>
+</html>

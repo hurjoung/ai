@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title></title>
+    <style>
+        
+    </style>
+    <script>
+        var num = 0;
+        var score = 0;
+        var tNum = 0;
+        var nNum = 0;
+
+        function AddSum(){
+            num++;
+            var chk = prompt('누적할 점수?','0-100');
+            //alert('입력값:' + chk + ' 타입' + typeof(chk));
+
+            if(chk == null || chk == '' || isNaN(parseFloat(chk))  ){
+                nNum++;
+                document.getElementById("msgDiv").innerHTML = '<h2><p>' + num + '번 입력</p></h2>';
+                document.getElementById("msgDiv").innerHTML += '<h2><p>누적점수 : ' + score + '</p></h2>';
+                document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 올바로 입력한 횟수' + tNum + '</p></h2>';
+                document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 틀린 횟수' + nNum + '</p></h2>';
+                return false;
+            }
+            else{
+                if( 0 <= parseFloat(chk) &&  parseFloat(chk) <= 100)
+                {   
+                    alert(chk);
+                    var chkAdd = confirm('누적할래?');
+                    
+                    if(chkAdd) {
+                        score += parseFloat(chk);
+                        tNum++;
+                        document.getElementById("msgDiv").innerHTML = '<h2><p>' + num + '번 입력</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>누적점수 : ' + score + '</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 올바로 입력한 횟수' + tNum + '</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 틀린 횟수' + nNum + '</p></h2>';
+                        return false;
+                    }
+                    else{
+                        nNum++;
+                        document.getElementById("msgDiv").innerHTML = '<h2><p>' + num + '번 입력</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>누적점수 : ' + score + '</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 올바로 입력한 횟수' + tNum + '</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 틀린 횟수' + nNum + '</p></h2>';
+                        return false;
+                    }
+                }
+                else{
+                        nNum++;
+                        document.getElementById("msgDiv").innerHTML = '<h2><p>' + num + '번 입력</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>누적점수 : ' + score + '</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 올바로 입력한 횟수' + tNum + '</p></h2>';
+                        document.getElementById("msgDiv").innerHTML += '<h2><p>점수를 틀린 횟수' + nNum + '</p></h2>';
+                        return false;
+                }            
+            }
+    }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="button" value="누적버튼" onclick="AddSum()">
+    </form>
+    <div id="msgDiv"></div>
+</body>
+</html>
