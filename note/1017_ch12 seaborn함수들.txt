@@ -1,4 +1,4 @@
-1)데이터준비
+1)데이터준비 - 전처리
 2)미적속성설정
 sns.set(style='darkgrid', 
         context='notebook',
