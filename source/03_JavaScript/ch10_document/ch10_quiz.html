@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+  <title></title>
+  <style>
+    
+    table {width:280px; height: 100px; margin: 10px auto;
+    border: 1px solid;
+    } 
+    table tr td{
+        border: 1px solid;
+        color: black;
+    }
+    h3{text-align:center;}
+  </style>
+  <script>
+    // 0번째 td부터 6번째 td까지 background-color 빨주노초파남보 입히고
+    // bgColorChange(n) 함수 만들기
+    var arrColor = Array('red', 'orange', 'yellow', 'green', 'blue', 'indigo','violet','white');
+    window.onload = ()=>{
+        
+        document.getElementById("td0").style.backgroundColor = arrColor[0];
+        document.getElementById("td1").style.backgroundColor = arrColor[1];
+        document.getElementById("td2").style.backgroundColor = arrColor[2];
+        document.getElementById("td3").style.backgroundColor = arrColor[3];
+        document.getElementById("td4").style.backgroundColor = arrColor[4];
+        document.getElementById("td5").style.backgroundColor = arrColor[5];
+        document.getElementById("td6").style.backgroundColor = arrColor[6];
+    };
+
+    function bgColorChange(nNum){
+        switch(nNum){            
+           case 0:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 1:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 2:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 3:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 4:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 5:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 6:document.body.style.backgroundColor = arrColor[nNum];break;
+           case 7:document.body.style.backgroundColor = arrColor[nNum];break;
+        }        
+        return true;
+    };
+  </script>
+</head>
+<body>
+  <h3>quiz : 마우를 올리면 바탕화면도 해당 색상으로</h3>
+  <table>
+    <tr onmouseout="bgColorChange(7)">
+      <td id="td0" onmouseover="bgColorChange(0)"></td>
+      <td id="td1" onmouseover="bgColorChange(1)"></td>
+      <td id="td2" onmouseover="bgColorChange(2)"></td>
+      <td id="td3" onmouseover="bgColorChange(3)"></td>
+      <td id="td4" onmouseover="bgColorChange(4)"></td>
+      <td id="td5" onmouseover="bgColorChange(5)"></td>
+      <td id="td6" onmouseover="bgColorChange(6)"></td>
+    </tr>
+  </table>
+</body>
+</html>
