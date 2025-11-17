@@ -117,3 +117,158 @@ select EMPNO, ENAME, job, sal
 select ENAME|| '은/는 '|| job ||' 업무이고 연봉은 '||(SAL*12+nvl(COMM,0))||'다.'
   from emp
 order by job;
+
+
+drop table SAM01;
+
+create table SAM01(
+    EMPNO NUMBER(4) PRIMARY KEY,
+    ENAME VARCHAR2(10),
+    JOB VARCHAR2(9),
+    SAL NUMBER(7,2)
+);
+
+
+insert into SAM01(empno, ename, job, sal) values(1000, 'APPLE', 'POLICE', 10000); 
+insert into SAM01(empno, ename, job, sal) values(1010, 'BANANA', 'NURSE', 15000); 
+insert into SAM01(empno, ename, job, sal) values(1020, 'ORANGE', 'DOCTOR', 25000); 
+insert into SAM01(empno, ename, job, sal) values(1030, 'VERY', null, 25000); 
+insert into SAM01(empno, ename, job, sal) values(1040, 'CAT', null, 2000); 
+
+select * from sam01;
+
+select * from emp
+where deptno = '10';
+
+insert into SAM01(empno, ename, job) 
+select empno, ename, job from emp where deptno = '10'
+;
+
+update sam01 set sal=2450 where empno = 7782;
+update sam01 set sal=5000 where empno = 7839;
+update sam01 set sal=1300 where empno = 7934;
+
+commit;
+
+select * from SAM01;
+
+
+create table MY_DATA(
+    ID NUMBER(4) PRIMARY KEY,
+    NAME VARCHAR2(10),
+    USERID VARCHAR2(30),
+    SALARY NUMBER(10,2)
+);
+
+select * from MY_DATA;
+
+insert into MY_DATA(id, name, userid, salary) values(1, 'Scott', 'sscott', 10000);
+insert into MY_DATA(id, name, userid, salary) values(2, 'Ford', 'fford', 13000);
+insert into MY_DATA(id, name, userid, salary) values(3, 'Patel', 'ppatel', 33000);
+insert into MY_DATA(id, name, userid, salary) values(4, 'Report', 'rreport', 23500);
+insert into MY_DATA(id, name, userid, salary) values(5, 'Good', 'ggood', 444500);
+
+commit;
+
+select id, name, userid, to_char(salary,'999,999,999,999.99') salary from my_data;
+
+update my_data set salary = 65000
+where id =3;
+
+commit;
+
+select * from my_data where salary <= 15000;
+
+update my_data set salary = 15000
+where salary <= 15000;
+
+-- drop table my_data;
+
+commit;
+
+
+  CREATE TABLE "SCOTT"."EMP01" 
+   (	"EMPNO" NUMBER(4,0), 
+	"ENAME" VARCHAR2(10), 
+	"JOB" VARCHAR2(9), 
+	"MGR" NUMBER(4,0), 
+	"HIREDATE" DATE, 
+	"SAL" NUMBER(7,2), 
+	"COMM" NUMBER(7,2), 
+	"DEPTNO" NUMBER(2,0), 
+	 PRIMARY KEY ("EMPNO"),
+	 FOREIGN KEY ("DEPTNO")
+	  REFERENCES "SCOTT"."DEPT" ("DEPTNO") ENABLE
+   );
+commit;
+
+insert into emp01 
+select EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO  from emp
+;
+
+select * from emp01;
+
+commit;
+
+rollback;
+
+update EMP01 set sal = round(sal*1.1, -1);
+
+
+select * from emp01
+where empno in (
+select empno from emp01 e, dept d
+where e.deptno = d.deptno
+and d.loc = 'DALLAS'
+)
+;
+
+update emp01 set sal = sal + 1000
+where empno in (
+select empno from emp01 e, dept d
+where e.deptno = d.deptno
+and d.loc = 'DALLAS'
+)
+;
+
+select empno, sal from emp01 e, dept d
+where e.deptno = d.deptno
+and d.loc = 'DALLAS';
+/*
+7369	880
+7566	3270
+7788	3300
+7876	1210
+7902	3300
+*/
+/*
+7369	1880
+7566	4270
+7788	4300
+7876	2210
+7902	4300
+*/
+
+update emp01 set sal = sal + 1000
+where deptno = (
+select distinct e.deptno from emp01 e, dept d
+where e.deptno = d.deptno
+and d.loc = 'DALLAS'
+;
+
+
+
+create table major(
+mcode number(1) primary key
+);
+
+commit;
+
+create table student(
+sno number(3) primary key,
+mcode number(1) REFERENCES major(mcode)
+);
+
+select * from student;
+
+
