@@ -271,4 +271,49 @@ mcode number(1) REFERENCES major(mcode)
 
 select * from student;
 
+select * from sw_cafe;
+
+select distinct ta_ymd from sw_cafe where substr(ta_ymd, 1,4) = '2023';
+
+
+select count(*) from sw_cafe;
+
+select * from sw_cafe where substr(ta_ymd, 1,4) = '2023';
+
+select ta_ymd,hour, amt, cnt, XXX 
+from (select ta_ymd, hour, sex, age, day, amt, cnt, round((case when amt=0 then 1 else amt end)/(case when cnt=0 then 1 else cnt end)) as xxx from sw_cafe where substr(ta_ymd,1,6) = '202401') p2023
+where XXX > 1000000
+;
+
+select ta_ymd, hour, amt, cnt from sw_cafe where substr(ta_ymd,1,6) = '202401' and amt = 0;
+
+select ta_ymd, hour, amt, cnt from sw_cafe where substr(ta_ymd,1,6) = '202401' and cnt = 0;
+
+select ta_ymd, amt, cnt from sw_cafe where substr(ta_ymd,1,4) = '202401'
+and cnt = 0
+order by ta_ymd
+;
+
+select ta_ymd, amt, cnt, round((case when amt=0 then 1 else amt end)/(case when cnt=0 then 1 else cnt end)) as ccc from sw_cafe where substr(ta_ymd,1,6) = '202301'
+order by substr(ta_ymd,1,6)
+;
+
+-- cty_rgn_no, CARD_TPBUZ_CD, CARD_TPBUZ_NM_1, 
+
+select ta_ymd, admi_cty_no, CARD_TPBUZ_NM_2, hour, sex, age, day, amt, cnt, round((case when amt=0 then 1 else amt end)/(case when cnt=0 then 1 else cnt end)) as ccc 
+from sw_cafe 
+where substr(ta_ymd,1,8) = '20230101' 
+and admi_cty_no between '41115650' and '41115740'
+order by substr(ta_ymd,1,6), hour
+;
+
+select ta_ymd, admi_cty_no, CARD_TPBUZ_NM_2, hour, sex, age, day, amt, cnt, round((case when amt=0 then 1 else amt end)/(case when cnt=0 then 1 else cnt end)) as ccc 
+from sw_cafe 
+where admi_cty_no between '41115650' and '41115740'
+;
+
+select ta_ymd, hour, sex, age, day, amt, cnt, round(nvl(amt,1)/nvl(cnt,1)) as xxx from sw_cafe where substr(ta_ymd,1,6) = '202401';
+
+
+select ta_ymd, dong, hour, amt, age, cnt, unit from suwon order by ta_ymd, dong, to_number(hour);
 
