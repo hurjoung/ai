@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "accounts",
+    "book",
+    "django.contrib.humanize", # intcomma 필터 사용 목적
 ]
 
 MIDDLEWARE = [
