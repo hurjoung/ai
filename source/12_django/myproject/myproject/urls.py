@@ -22,4 +22,11 @@ urlpatterns = [
     path("", lambda request : redirect("book:list")),
     path("blog/", include("blog.urls")),
     path("book/", include("book.urls")),
+    path("article/", include("article.urls")),
 ]
+
+# 장고는 static은 자동연결. media는 개발자가 url과 root경로를 연결
+from django.conf.urls.static import static
+from . import settings
+urlpatterns += static(settings.MEDIA_URL,   # /media
+                    document_root=settings.MEDIA_ROOT)  # BASE_DIR/_media저장
